@@ -83,7 +83,7 @@ const LoginPage = () => {
                                             <label  className="checkbox-label ml-2  text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
                                             
                                         </div>
-                                        <input type="submit" value="Login" className="login-form-button pull-right btn btn-sm btn-blue" />
+                                        <input type="submit" value="Login" name="btn_login" className="login-form-button pull-right btn btn-sm btn-blue" />
                                       </div>
 
                                       <div className="space-4"></div>
@@ -96,7 +96,7 @@ const LoginPage = () => {
                               <div className="login-footer ng-binding">© 2023 Reqo, Inc.</div>
 
                               <div className="login-footer login-footer-right pull-right">
-                                  <a className="pull-right forgot-password-link" onClick={()=>setLoginForm(false)} data-ng-click="makeVisible('forgot-password')">
+                                  <a className="pull-right forgot-password-link" onClick={()=>setLoginForm(false)} id='btn_forgot' data-ng-click="makeVisible('forgot-password')">
                                       Forgot password?
                                   </a>
                               </div>
@@ -136,7 +136,7 @@ const LoginPage = () => {
 
                                   <div className="space"></div>
                                   <div className="cleafix">
-                                      <button type="submit" className="login-form-button pull-right btn btn-sm btn-blue">
+                                      <button type="submit" id="btn_reset" className="login-form-button pull-right btn btn-sm btn-blue">
                                           <i className="icon-lightbulb"></i>
                                           Submit
                                       </button>

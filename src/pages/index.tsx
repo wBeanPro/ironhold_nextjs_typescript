@@ -25,6 +25,18 @@ const LoginPage = () => {
     });
   };
 
+  const handleResetSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    axios.get('https://restihp.ironhold.net/rest-api/users/reset/demo/'+email)
+    .then((response) => {
+        console.log(response.data.status);
+        alert(response.data.message);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+  };
+
   return (
     <div className="height100">
       <div className="main-ui-view">
@@ -57,7 +69,7 @@ const LoginPage = () => {
 
                                       <label className="block clearfix">
                                         <span className="block input-icon input-icon-right">
-                                          <input type="text" className="form-control client-key ng-pristine ng-untouched ng-valid ng-valid-required" name="clientKey" placeholder="client key"  data-ng-model="clientKey" data-ng-disabled="disableClientKey" data-ng-keydown="removeErrors()"  />
+                                          <input type="text" className="form-control client-key ng-pristine ng-untouched ng-valid ng-valid-required" name="clientKey" placeholder="client key"  data-ng-model="clientKey" value="DEMO" data-ng-disabled="disableClientKey" disabled data-ng-keydown="removeErrors()"  />
                                           <i className="icon-lock"></i>
                                         </span>
                                       </label>
@@ -98,7 +110,7 @@ const LoginPage = () => {
                           <div className="login-logo" title="IronHold"></div>
 
 
-                          <form className="ng-pristine ng-valid">
+                          <form onSubmit={handleResetSubmit} className="ng-pristine ng-valid">
                               <h4 className="header lighter bigger">
                                   Retrieve Password
                               </h4>
@@ -112,13 +124,13 @@ const LoginPage = () => {
                               <fieldset>
                                   <label className="block clearfix">
                                       <span className="block input-icon input-icon-right">
-                                        <input type="text" className="form-control ng-pristine ng-untouched ng-valid" data-ng-model="forgotPasswordUsername" name="username" placeholder="email"/>
+                                        <input type="text" className="form-control ng-pristine ng-untouched ng-valid" data-ng-model="forgotPasswordUsername" name="username" placeholder="email" value={email}/>
                                       </span>
                                   </label>
 
                                   <label className="block clearfix">
                                     <span className="block input-icon input-icon-right">
-                                      <input type="text" className="form-control client-key ng-pristine ng-untouched ng-valid" data-ng-model="clientKey" name="client_key" data-ng-disabled="disableClientKey" placeholder="client key" disabled/>
+                                      <input type="text" className="form-control client-key ng-pristine ng-untouched ng-valid" data-ng-model="clientKey" name="client_key" data-ng-disabled="disableClientKey" placeholder="client key" value="DEMO" disabled/>
                                     </span>     
                                   </label>
 

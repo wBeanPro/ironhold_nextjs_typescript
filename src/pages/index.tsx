@@ -17,7 +17,8 @@ const LoginPage = () => {
     event.preventDefault();
     axios.post('https://restihp.ironhold.net/rest-api/login/demo/'+email+'/2592000000?Accept=application%2Fjson&Content-type=application%2Fjson', password )
     .then((response) => {
-        console.log(response);
+        console.log(response.data.status);
+        alert(response.data.message);
     })
     .catch((error) => {
         console.log(error);

@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    axios.put('https://restihp.ironhold.net/rest-api/login/demo/'+email+'/2592000000?Accept=application%2Fjson&Content-type=application%2Fjson', password )
+    axios.post('https://restihp.ironhold.net/rest-api/login/demo/'+email+'/2592000000?Accept=application%2Fjson&Content-type=application%2Fjson', password )
     .then((response) => {
         console.log(response);
     })
